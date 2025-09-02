@@ -4,10 +4,7 @@ from routes.user_routes import user_bp
 from routes.task_routes import task_bp
 from routes.refer_routes import refer_bp
 from routes.order_routes import order_bp
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
 app = Flask(__name__)
 
 # Register Blueprints
@@ -18,4 +15,4 @@ app.register_blueprint(refer_bp, url_prefix="/api/refer")
 app.register_blueprint(order_bp, url_prefix="/api/order")
 
 if __name__ == "__main__":
-    app.run(debug=(os.getenv("FLASK_ENV")=="development"))
+    app.run(host="0.0.0.0", port=5000, debug=True)
